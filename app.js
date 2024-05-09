@@ -20,12 +20,13 @@ app.use(
     origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    optionSuccessStatus:200
   })
 );
 
 // Using routes
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/task", taskRouter);
+app.use("/users", userRouter);
+app.use("/task", taskRouter);
 
 app.get("/", (req, res) => {
   res.send("Nice working");
